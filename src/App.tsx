@@ -10,12 +10,16 @@ function App() {
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
       }}
+      templateColumns={{
+        base: "1fr", // 移动端单列
+        lg: "200px 1fr", // 大屏设备: 侧边栏200px + 自适应内容区
+      }}
     >
       <GridItem area="nav">
         <Navbar></Navbar>
       </GridItem>
       <Show above="lg">
-        <GridItem area="aside">
+        <GridItem area="aside" paddingX={5}>
           <GenreList />
         </GridItem>
       </Show>
