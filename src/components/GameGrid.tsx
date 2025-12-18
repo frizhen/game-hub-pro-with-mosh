@@ -3,8 +3,12 @@ import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
-const GameGrid = () => {
-  const { data, error, isLoading } = useGames();
+import { Genre } from "../hooks/useGenres";
+interface Props {
+  selectedGenre: Genre | null;
+}
+const GameGrid = ({ selectedGenre }: Props) => {
+  const { data, error, isLoading } = useGames(selectedGenre);
   // 创建骨架屏数组
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
@@ -18,13 +22,13 @@ const GameGrid = () => {
         {/* 根据加载状态切换渲染内容 */}
         {isLoading &&
           skeletons.map((Skeleton) => (
-            <GameCardContainer>
-              <GameCardSkeleton key={Skeleton} />
+            <GameCardContainer key={Skeleton}>
+              <GameCardSkeleton />
             </GameCardContainer>
           ))}
         {data.map((game) => (
-          <GameCardContainer>
-            <GameCard key={game.id} game={game}></GameCard>
+          <GameCardContainer key={game.id}>
+            <GameCard game={game}></GameCard>
           </GameCardContainer>
         ))}
       </SimpleGrid>

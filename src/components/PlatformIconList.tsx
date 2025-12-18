@@ -31,7 +31,7 @@ const PlatformIconList = ({ platforms }: Props) => {
     <HStack padding={1}>
       {/* 使用主题空间单位（1 = 4px） */}
       {platforms.map((platform) => (
-        <Icon as={iconMap[platform.slug]} color="gray.500" />
+        <Icon key={platform.id} as={iconMap[platform.slug]} color="gray.500" />
       ))}
     </HStack>
   );
