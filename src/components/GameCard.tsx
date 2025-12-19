@@ -1,4 +1,4 @@
-import { Card, CardBody, Heading, HStack, Image, Text } from "@chakra-ui/react";
+import { Card, CardBody, Heading, HStack, Image } from "@chakra-ui/react";
 // 从useGame导出interface Game接口
 import { Game } from "../hooks/useGames";
 import PlatformIconList from "./PlatformIconList";
