@@ -8,7 +8,21 @@ const config: ThemeConfig ={
 
 // 扩展默认主题
 const theme = extendTheme({
-  config
+  config,
+  colors:{
+    gray:{
+      50:'#f2f2f2',
+      100:'#d9d9d9',
+      200:'#bfbfbf',
+      300: 'b3b3b3',
+      400: 'a0a0a0',
+      500: '898989',
+      600: '636363',
+      700: '202020',
+      800: '121212',
+      900: '111111'
+    }
+  }
 })
 
 export default theme
