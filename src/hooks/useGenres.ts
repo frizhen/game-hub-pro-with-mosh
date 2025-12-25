@@ -15,7 +15,8 @@ const useGenres = () =>
     queryFn: apiClient.getAll,
     // 设置缓存时间为24小时（毫秒）
     staleTime: 24 * 60 * 60 * 1000, // 24 hours
-    initialData: { count: genres.length, results: genres },
+    // initialData: { count: genres.length, results: genres, next: null },
+    initialData: genres,
   });
 
 export default useGenres;
