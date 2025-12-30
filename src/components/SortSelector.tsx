@@ -1,10 +1,10 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
-interface Props {
-  selectedSortOrder: string;
-  onSelectedSortOrder: (sortOrder: string) => void;
-}
-const SortSelector = ({ selectedSortOrder, onSelectedSortOrder }: Props) => {
+import useGameQueryStore from "../store";
+
+const SortSelector = () => {
+  const selectedSortOrder = useGameQueryStore((s) => s.gameQuery.sortOrder);
+  const setSelectedSortOrder = useGameQueryStore((s) => s.setSortOrder);
   // 定义排序数组
   const sortOrders = [
     { value: "", label: "Relevance" },
@@ -25,7 +25,7 @@ const SortSelector = ({ selectedSortOrder, onSelectedSortOrder }: Props) => {
       <MenuList>
         {sortOrders.map((sortOrder) => (
           <MenuItem
-            onClick={() => onSelectedSortOrder(sortOrder.value)}
+            onClick={() => setSelectedSortOrder(sortOrder.value)}
             key={sortOrder.value}
             value={sortOrder.value}
           >
